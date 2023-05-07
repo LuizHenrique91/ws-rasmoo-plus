@@ -1,6 +1,7 @@
 package com.client.ws.rasmooplus.model;
 
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.io.Serializable;
