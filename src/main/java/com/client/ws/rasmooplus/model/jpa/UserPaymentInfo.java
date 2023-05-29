@@ -1,6 +1,9 @@
-package com.client.ws.rasmooplus.model;
+package com.client.ws.rasmooplus.model.jpa;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,7 +19,7 @@ import java.time.LocalDate;
 public class UserPaymentInfo implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_payment_info_id")
     private Long id;
 
@@ -34,7 +37,7 @@ public class UserPaymentInfo implements Serializable {
 
     private BigDecimal price;
 
-    private Long instalments;
+    private Long installments;
 
     @Column(name = "dt_payment")
     private LocalDate dtPayment;

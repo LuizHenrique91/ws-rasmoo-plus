@@ -30,46 +30,48 @@ public class WsRaspayIntegrationImpl implements WsRaspayIntegration {
 
     private final RestTemplate restTemplate;
     private final HttpHeaders headers;
+
     public WsRaspayIntegrationImpl() {
         this.restTemplate = new RestTemplate();
-        this.headers =  getHttpHeaders();
+        this.headers = getHttpHeaders();
     }
 
     @Override
     public CustomerDto createCustomer(CustomerDto dto) {
-        System.out.println(raspayHost+customerUrl);
-        try{
+        System.out.println(raspayHost + customerUrl);
+        try {
             HttpEntity<CustomerDto> request = new HttpEntity<>(dto, this.headers);
             ResponseEntity<CustomerDto> response =
-                    restTemplate.exchange(raspayHost+customerUrl, HttpMethod.POST, request, CustomerDto.class);
+                    restTemplate.exchange(raspayHost + customerUrl, HttpMethod.POST, request, CustomerDto.class);
 
             return response.getBody();
-        }catch (Exception e){
+        } catch (Exception e) {
             throw e;
         }
     }
+
     @Override
     public OrderDto createOrder(OrderDto orderDto) {
-        try{
+        try {
             HttpEntity<OrderDto> request = new HttpEntity<>(orderDto, this.headers);
             ResponseEntity<OrderDto> response =
-                    restTemplate.exchange(raspayHost+orderUrl, HttpMethod.POST, request, OrderDto.class);
+                    restTemplate.exchange(raspayHost + orderUrl, HttpMethod.POST, request, OrderDto.class);
 
             return response.getBody();
-        }catch (Exception e){
+        } catch (Exception e) {
             throw e;
         }
     }
 
     @Override
     public Boolean processPayment(PaymentDto paymentDto) {
-        try{
+        try {
             HttpEntity<PaymentDto> request = new HttpEntity<>(paymentDto, this.headers);
             ResponseEntity<Boolean> response =
-                    restTemplate.exchange(raspayHost+paymentUrl, HttpMethod.POST, request, Boolean.class);
+                    restTemplate.exchange(raspayHost + paymentUrl, HttpMethod.POST, request, Boolean.class);
 
             return response.getBody();
-        }catch (Exception e){
+        } catch (Exception e) {
             throw e;
         }
     }

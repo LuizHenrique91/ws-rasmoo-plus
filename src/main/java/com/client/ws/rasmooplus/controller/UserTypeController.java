@@ -1,6 +1,6 @@
 package com.client.ws.rasmooplus.controller;
 
-import com.client.ws.rasmooplus.model.UserType;
+import com.client.ws.rasmooplus.model.jpa.UserType;
 import com.client.ws.rasmooplus.service.UserTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,7 @@ public class UserTypeController {
     private UserTypeService userTypeService;
 
     @GetMapping
-    public ResponseEntity<List<UserType>> findAll(){
+    public ResponseEntity<List<UserType>> findAll() {
         return ResponseEntity.ok().body(userTypeService.findAll());
     }
 }

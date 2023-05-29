@@ -1,9 +1,8 @@
 package com.client.ws.rasmooplus.mapper;
 
-import com.client.ws.rasmooplus.dto.PaymentProcessDto;
 import com.client.ws.rasmooplus.dto.UserPaymentInfoDto;
-import com.client.ws.rasmooplus.model.User;
-import com.client.ws.rasmooplus.model.UserPaymentInfo;
+import com.client.ws.rasmooplus.model.jpa.User;
+import com.client.ws.rasmooplus.model.jpa.UserPaymentInfo;
 
 public class UserPaymentInfoMapper {
 
@@ -16,6 +15,7 @@ public class UserPaymentInfoMapper {
                 .cardSecurityCode(userPaymentInfoDto.getCardSecurityCode())
                 .price(userPaymentInfoDto.getPrice())
                 .dtPayment(userPaymentInfoDto.getDtPayment())
+                .installments(userPaymentInfoDto.getInstallments())
                 .user(user)
                 .build();
 

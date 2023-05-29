@@ -15,6 +15,7 @@ public class WsRaspayIntegrationImplTest {
 
     @Autowired
     private WsRaspayIntegration wsRaspayIntegration;
+
     @Test
     void createCustomerWhenDtoOk() {
         CustomerDto dto = new CustomerDto(null, "05543232659", "teste2@teste.com", "Carlos", "Silva");
